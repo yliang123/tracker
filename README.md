@@ -1,11 +1,10 @@
-# tracker
 const { collector } = require("@themarkup/blacklight-collector");
 const { join } = require("path");
 const fs = require("fs");
 const puppeteer = require("puppeteer");
 const mkdirp = require('mkdirp');
 const path = require("path");
-const PuppeteerHar = require('puppeteer-har');
+const { harFromMessages } = require('chrome-har');
 // const file = "./cookies.json";
 // async function exportCookies(url) {
 //   const browser = await puppeteer.launch({ headless: false });
@@ -20,37 +19,50 @@ const PuppeteerHar = require('puppeteer-har');
 //   await browser.close();
 // }
 let Urls = ["http://mays.com"];
+// list of events for converting to HAR
+const events = [];
+
+// event types to observe
+const observe = [
+  'Page.loadEventFired',
+  'Page.domContentEventFired',
+  'Page.frameStartedLoading',
+  'Page.frameAttached',
+  'Network.requestWillBeSent',
+  'Network.requestServedFromCache',
+  'Network.dataReceived',
+  'Network.responseReceived',
+  'Network.resourceChangedPriority',
+  'Network.loadingFinished',
+  'Network.loadingFailed',
+];
 (async () => {
 
   // navigate to target website
   for (let i = 0; i < Urls.length; i++) {
     let outDir = Urls[i].split("//")[1];
     const browser = await puppeteer.launch({ 
-      headless: false, numPages: 2});
+    headless: false, numPages: 2});
     const page = await browser.newPage();
-    const har = new PuppeteerHar(page);
-    try {
-      await har.start({ path: outDir + '.har' });
-    }
-    catch (err) {
-      console.log(err);
-    }
     // try{
     //   await har.start({ path: outDir + '.har' });
     // } catch (e) {
     //   console.log(e);
     // }
     // log console to console
+      // register events listeners
+  const client =  page.target().createCDPSession();
+   client.send('Page.enable');
+   client.send('Network.enable');
+  observe.forEach(method => {
+    client.on(method, params => {
+      events.push({ method, params });
+    });
+  });
     page.on('console', (...args) => {
       console.log('PAGE LOG: ', ...args);
     });
     await page.goto(Urls[i]);
-    try {
-      await har.stop();
-    }
-    catch (err) {
-      console.log(err);
-    }
     // get all links on the page
     // try {
     //   await har.stop();
@@ -80,7 +92,6 @@ let Urls = ["http://mays.com"];
     for (let j = 0; j < Math.min(5, filteredLinks.length); j++) {
       browserHistory.push(filteredLinks[j]);
       await page.goto(filteredLinks[j]);
-      await page.waitFor(1000);
       const cookie = await page.cookies();
       cookies.push(cookie);
       //check session recording
@@ -93,6 +104,7 @@ let Urls = ["http://mays.com"];
       });
       requests.push(...tempRequests);
       links.push(...tempLinks);
+      await page.waitFor(1000);
     }
     //export cookies to file
     // let outDir = links[0].split("//")[1];
@@ -125,6 +137,9 @@ let Urls = ["http://mays.com"];
     console.log(links);
 
     browser.close();
+    // convert events to HAR file
+  const har = harFromMessages(events);
+  await promisify(fs.writeFile)('en.wikipedia.org.har', JSON.stringify(har));
   }
  
 })();
