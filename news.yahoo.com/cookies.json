@@ -1,0 +1,297 @@
+[
+  [
+    {
+      "name": "B",
+      "value": "cedgr21ho4in1&b=3&s=u6",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701040833.868795,
+      "size": 23,
+      "httpOnly": false,
+      "secure": false,
+      "session": false
+    },
+    {
+      "name": "A1",
+      "value": "d=AQABBOFKgmMCEP5r594lunA8IxoSeRAbNscFEgEBCAGag2O2Y9xI0iMA_eMBAAcI4UqCYxAbNsc&S=AQAAAp1Egqt8dgTIftE1AR9IC18",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701019237.191793,
+      "size": 109,
+      "httpOnly": true,
+      "secure": true,
+      "session": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "GUCS",
+      "value": "ARZbj6k4",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1669485037.065793,
+      "size": 12,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "GUC",
+      "value": "AQEBCAFjg5pjtkIgvgR8&s=AQAAALis6uXw&g=Y4JK7g",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701062429.191792,
+      "size": 47,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "A1S",
+      "value": "d=AQABBOFKgmMCEP5r594lunA8IxoSeRAbNscFEgEBCAGag2O2Y9xI0iMA_eMBAAcI4UqCYxAbNsc&S=AQAAAp1Egqt8dgTIftE1AR9IC18&j=US",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 0,
+      "size": 115,
+      "httpOnly": false,
+      "secure": true,
+      "session": true,
+      "sameSite": "Lax"
+    }
+  ],
+  [
+    {
+      "name": "B",
+      "value": "cedgr21ho4in1&b=3&s=u6",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701040833.868795,
+      "size": 23,
+      "httpOnly": false,
+      "secure": false,
+      "session": false
+    },
+    {
+      "name": "A1",
+      "value": "d=AQABBOFKgmMCEP5r594lunA8IxoSeRAbNscFEgEBCAGag2O2Y9xI0iMA_eMBAAcI4UqCYxAbNsc&S=AQAAAp1Egqt8dgTIftE1AR9IC18",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701019237.191793,
+      "size": 109,
+      "httpOnly": true,
+      "secure": true,
+      "session": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "GUCS",
+      "value": "ARZbj6k4",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1669485037.065793,
+      "size": 12,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "GUC",
+      "value": "AQEBCAFjg5pjtkIgvgR8&s=AQAAALis6uXw&g=Y4JK7g",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701062429.191792,
+      "size": 47,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "A1S",
+      "value": "d=AQABBOFKgmMCEP5r594lunA8IxoSeRAbNscFEgEBCAGag2O2Y9xI0iMA_eMBAAcI4UqCYxAbNsc&S=AQAAAp1Egqt8dgTIftE1AR9IC18&j=US",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 0,
+      "size": 115,
+      "httpOnly": false,
+      "secure": true,
+      "session": true,
+      "sameSite": "Lax"
+    }
+  ],
+  [
+    {
+      "name": "A1",
+      "value": "d=AQABBOdKgmMCEAyXyyPvvzAFzTpW81zhlgQFEgEBCAGag2O2YwAAAAAAAAAAgA&S=AQAAAnIOCeygguZIQ0j1KS6DH_M",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701040839.705792,
+      "size": 96,
+      "httpOnly": true,
+      "secure": true,
+      "session": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "GUCS",
+      "value": "ARZbj6k4",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1669485037.065793,
+      "size": 12,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "B",
+      "value": "095n1bhho4in7&b=3&s=ob",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701040839.292795,
+      "size": 23,
+      "httpOnly": false,
+      "secure": false,
+      "session": false
+    },
+    {
+      "name": "GUC",
+      "value": "AQEBCAFjg5pjtkIgvgR8&s=AQAAALis6uXw&g=Y4JK7g",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701040839.292796,
+      "size": 47,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "A1S",
+      "value": "d=AQABBOdKgmMCEAyXyyPvvzAFzTpW81zhlgQFEgEBCAGag2O2YwAAAAAAAAAAgA&S=AQAAAnIOCeygguZIQ0j1KS6DH_M&j=US",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 0,
+      "size": 102,
+      "httpOnly": false,
+      "secure": true,
+      "session": true,
+      "sameSite": "Lax"
+    }
+  ],
+  [
+    {
+      "name": "A1",
+      "value": "d=AQABBOdKgmMCEAyXyyPvvzAFzTpW81zhlgQFEgEBCAGUg2OyY9xI0iMA_eMBAAcI50qCY1zhlgQ&S=AQAAAid799-iVW_1uhCB9fS93V0",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701019240.442793,
+      "size": 109,
+      "httpOnly": true,
+      "secure": true,
+      "session": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "GUCS",
+      "value": "AWo15D8U",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1669485040.311793,
+      "size": 12,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "B",
+      "value": "23056h1ho4in8&b=3&s=k8",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701019240.417792,
+      "size": 23,
+      "httpOnly": false,
+      "secure": false,
+      "session": false
+    },
+    {
+      "name": "GUC",
+      "value": "AQEBCAFjg5RjskIbFgQh&s=AQAAADVqjZIA&g=Y4JK8g",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701062428.442792,
+      "size": 47,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "A1S",
+      "value": "d=AQABBOdKgmMCEAyXyyPvvzAFzTpW81zhlgQFEgEBCAGUg2OyY9xI0iMA_eMBAAcI50qCY1zhlgQ&S=AQAAAid799-iVW_1uhCB9fS93V0&j=US",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 0,
+      "size": 115,
+      "httpOnly": false,
+      "secure": true,
+      "session": true,
+      "sameSite": "Lax"
+    }
+  ],
+  [
+    {
+      "name": "A1",
+      "value": "d=AQABBOlKgmMCEBBNx59aNPDFO5VM2R09aWcFEgEBCAGUg2OyYwAAAAAAAAAAgA&S=AQAAAgWOmoNpttOsGuOtCVCzEgI",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701040841.523792,
+      "size": 96,
+      "httpOnly": true,
+      "secure": true,
+      "session": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "GUCS",
+      "value": "AWo15D8U",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1669485040.311793,
+      "size": 12,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "B",
+      "value": "6eq9t3lho4in9&b=3&s=d4",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701040841.461795,
+      "size": 23,
+      "httpOnly": false,
+      "secure": false,
+      "session": false
+    },
+    {
+      "name": "GUC",
+      "value": "AQEBCAFjg5RjskIbFgQh&s=AQAAADVqjZIA&g=Y4JK8g",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 1701040841.461796,
+      "size": 47,
+      "httpOnly": false,
+      "secure": true,
+      "session": false
+    },
+    {
+      "name": "A1S",
+      "value": "d=AQABBOlKgmMCEBBNx59aNPDFO5VM2R09aWcFEgEBCAGUg2OyYwAAAAAAAAAAgA&S=AQAAAgWOmoNpttOsGuOtCVCzEgI&j=US",
+      "domain": ".yahoo.com",
+      "path": "/",
+      "expires": 0,
+      "size": 102,
+      "httpOnly": false,
+      "secure": true,
+      "session": true,
+      "sameSite": "Lax"
+    }
+  ]
+]

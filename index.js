@@ -17,7 +17,8 @@ const path = require("path");
 //     .catch(err => console.log(err));
 //   await browser.close();
 // }
-let Urls = ["http://mays.com"];
+// let Urls = ["http://mays.com","https://www.nytimes.com/","https://www.huffpost.com/", "https://www.huffpost.com/", "https://www.foxnews.com/","https://www.usatoday.com/","https://www.politico.com/","https://news.yahoo.com/", "https://www.npr.org/","https://www.latimes.com/california"];
+let Urls = ["https://www.usatoday.com/","https://www.politico.com/","https://news.yahoo.com/", "https://www.npr.org/","https://www.latimes.com/california"];
 // list of events for converting to HAR
 
 (async () => {
@@ -67,7 +68,18 @@ let Urls = ["http://mays.com"];
     browserHistory.push(Urls[i]);
     for (let j = 0; j < Math.min(5, filteredLinks.length); j++) {
       browserHistory.push(filteredLinks[j]);
-      await page.goto(filteredLinks[j]);
+      try {
+        await page.goto(filteredLinks[j],{
+          waitUntil: 'load',
+          // Remove the timeout
+          timeout: 1000
+      });
+      }
+      catch (e) {
+        console.log(e);
+      }
+      // wait for 1 to 3 seconds
+      // await page.waitFor(Math.floor(Math.random() * 3000) + 1000);
       const cookie = await page.cookies();
       cookies.push(cookie);
       //check session recording
@@ -80,7 +92,7 @@ let Urls = ["http://mays.com"];
       });
       requests.push(...tempRequests);
       links.push(...tempLinks);
-      await page.waitFor(1000);
+      
     }
     //export cookies to file
     // let outDir = links[0].split("//")[1];
