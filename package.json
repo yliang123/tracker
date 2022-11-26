@@ -26,6 +26,7 @@
   "homepage": "https://github.com/joshbuchea/starter-puppeteer#readme",
   "dependencies": {
     "@themarkup/blacklight-collector": "^2.1.11",
+    "chrome-har": "^0.13.0",
     "mkdirp": "^1.0.4",
     "puppeteer": "^0.10.0"
   }
