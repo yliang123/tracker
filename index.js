@@ -4,6 +4,7 @@ const fs = require("fs");
 const puppeteer = require("puppeteer");
 const mkdirp = require('mkdirp');
 const path = require("path");
+const { harFromMessages } = require('chrome-har');
 // const file = "./cookies.json";
 // async function exportCookies(url) {
 //   const browser = await puppeteer.launch({ headless: false });
@@ -18,24 +19,51 @@ const path = require("path");
 //   await browser.close();
 // }
 // let Urls = ["http://mays.com","https://www.nytimes.com/","https://www.huffpost.com/", "https://www.huffpost.com/", "https://www.foxnews.com/","https://www.usatoday.com/","https://www.politico.com/","https://news.yahoo.com/", "https://www.npr.org/","https://www.latimes.com/california"];
-let Urls = ["https://www.usatoday.com/","https://www.politico.com/","https://news.yahoo.com/", "https://www.npr.org/","https://www.latimes.com/california"];
+let Urls = ["https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
 // list of events for converting to HAR
+const events = [];
 
+// event types to observe
+const observe = [
+  'Page.loadEventFired',
+  'Page.domContentEventFired',
+  'Page.frameStartedLoading',
+  'Page.frameAttached',
+  'Network.requestWillBeSent',
+  'Network.requestServedFromCache',
+  'Network.dataReceived',
+  'Network.responseReceived',
+  'Network.resourceChangedPriority',
+  'Network.loadingFinished',
+  'Network.loadingFailed',
+];
+process.on('unhandledRejection', error => {
+  console.log('我帮你处理了', error.message);
+});
 (async () => {
 
   // navigate to target website
   for (let i = 0; i < Urls.length; i++) {
     let outDir = Urls[i].split("//")[1];
-    const browser = await puppeteer.launch({ 
-    headless: false, numPages: 2});
+    const browser = await puppeteer.launch({
+      headless: false, numPages: 2
+    });
     const page = await browser.newPage();
+    const client = await page.target().createCDPSession();
+    await client.send('Page.enable');
+    await client.send('Network.enable');
+    observe.forEach(method => {
+      client.on(method, params => {
+        events.push({ method, params });
+      });
+    });
     // try{
     //   await har.start({ path: outDir + '.har' });
     // } catch (e) {
     //   console.log(e);
     // }
     // log console to console
-      // register events listeners
+    // register events listeners
     page.on('console', (...args) => {
       console.log('PAGE LOG: ', ...args);
     });
@@ -69,11 +97,11 @@ let Urls = ["https://www.usatoday.com/","https://www.politico.com/","https://new
     for (let j = 0; j < Math.min(5, filteredLinks.length); j++) {
       browserHistory.push(filteredLinks[j]);
       try {
-        await page.goto(filteredLinks[j],{
+        await page.goto(filteredLinks[j], {
           waitUntil: 'load',
           // Remove the timeout
           timeout: 1000
-      });
+        });
       }
       catch (e) {
         console.log(e);
@@ -92,7 +120,7 @@ let Urls = ["https://www.usatoday.com/","https://www.politico.com/","https://new
       });
       requests.push(...tempRequests);
       links.push(...tempLinks);
-      
+
     }
     //export cookies to file
     // let outDir = links[0].split("//")[1];
@@ -101,7 +129,7 @@ let Urls = ["https://www.usatoday.com/","https://www.politico.com/","https://new
       mkdirp.sync(outDir);
       fs.writeFileSync(
         join(outDir, fileName),
-        JSON.stringify(cookies , null, 2),
+        JSON.stringify(cookies, null, 2),
       );
       console.log("Cookies exported!");
       //export requests to file
@@ -125,7 +153,22 @@ let Urls = ["https://www.usatoday.com/","https://www.politico.com/","https://new
     console.log(links);
 
     browser.close();
+    const har = harFromMessages(events);
+    //export har file
+    fileName = "har.json";
+    try {
+      mkdirp.sync(outDir);
+      fs.writeFileSync(
+        join(outDir, fileName),
+        JSON.stringify(har, null, 2),
+      );
+      console.log("HAR exported!");
+    }
+    catch (err) {
+      console.log(err);
+    }
+
     // convert events to HAR file
   }
- 
+
 })();
