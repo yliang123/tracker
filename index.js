@@ -23,7 +23,7 @@ const { harFromMessages } = require('chrome-har');
 
 // let Urls = ["https://www.autoblog.com/", "https://jalopnik.com/", "http://www.speedhunters.com/", "https://www.motorauthority.com/", "https://paultan.org/", "https://www.greencarreports.com/", "https://www.carexpert.com.au/", "https://www.carscoops.com","https://www.caranddriver.com/","https://www.carfax.com/"]
 
-let Urls =["https://www.politicususa.com/", "https://www.thegatewaypundit.com/", "https://thepoliticalinsider.com/", "https://www.politico.com/", "https://reason.com/", "https://www.realclearpolitics.com/", "https://www.dailykos.com/", "https://politicalwire.com/", "https://front.moveon.org/blog/", "https://www.vox.com/policy-and-politics"]
+let Urls = ["https://www.jihadwatch.org"]
 // list of events for converting to HAR
 const events = [];
 
