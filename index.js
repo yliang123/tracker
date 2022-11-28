@@ -24,10 +24,10 @@ const { harFromMessages } = require('chrome-har');
 // let Urls = ["https://www.autoblog.com/", "https://jalopnik.com/", "http://www.speedhunters.com/", "https://www.motorauthority.com/", "https://paultan.org/", "https://www.greencarreports.com/", "https://www.carexpert.com.au/", "https://www.carscoops.com","https://www.caranddriver.com/","https://www.carfax.com/"]
 
 // let Urls = ["https://www.jihadwatch.org"]
-let Urls =["https://cupofjo.com/", "https://www.theblondeabroad.com/travel-blog/", "https://onbetterliving.com/", "https://goop.com/", "https://camillestyles.com/", "https://witanddelight.com/", "https://blog.justinablakeney.com", "https://heleneinbetween.com/", "https://abeautifulmess.com/", "https://www.primermagazine.com/"]
+// let Urls =["https://cupofjo.com/", "https://www.theblondeabroad.com/travel-blog/", "https://onbetterliving.com/", "https://goop.com/", "https://camillestyles.com/", "https://witanddelight.com/", "https://blog.justinablakeney.com", "https://heleneinbetween.com/", "https://abeautifulmess.com/", "https://www.primermagazine.com/"]
 // list of events for converting to HAR
 const events = [];
-
+let Urls = ["https://www.webmd.com/news", "https://www.health.harvard.edu/blog", "https://www.mercola.com/", "https://wellnessmama.com/blog/", "https://www.precisionnutrition.com/blog", "https://psychcentral.com/blog", "https://www.marksdailyapple.com/blog/", "https://healthphreaks.com/", "https://mobihealthnews.com", "https://khn.org/"]
 // event types to observe
 const observe = [
   'Page.loadEventFired',
