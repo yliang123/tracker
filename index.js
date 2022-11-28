@@ -18,8 +18,8 @@ const { harFromMessages } = require('chrome-har');
 //     .catch(err => console.log(err));
 //   await browser.close();
 // }
-// let Urls = ["https://www.nytimes.com/", "https://www.huffpost.com/", "https://www.huffpost.com/", "https://www.foxnews.com/", "https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
-let Urls = ["https://thetopdailynews.com/", "https://nypost.com/"]
+let Urls = ["https://www.npr.org/"];
+// let Urls = ["https://www.latimes.com", "https://thetopdailynews.com/", "https://nypost.com/"]
 // let Urls = ["https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
 // list of events for converting to HAR
 const events = [];
@@ -101,13 +101,16 @@ process.on('unhandledRejection', error => {
       browserHistory.push(filteredLinks[j]);
       try {
         await page.goto(filteredLinks[j]);
+        await page.waitForNavigation({
+          waitUntil: 'networkidle2',
+        });
       }
       catch (e) {
         console.log(e);
       }
       // wait for 1 to 3 seconds
 
-      const cookie = await page.cookies();
+      const cookie = (await client.send('Network.getAllCookies')).cookies;
       cookies.push(cookie);
       //check session recording
       const tempLinks = await page.evaluate(() => {
