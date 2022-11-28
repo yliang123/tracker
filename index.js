@@ -18,8 +18,8 @@ const { harFromMessages } = require('chrome-har');
 //     .catch(err => console.log(err));
 //   await browser.close();
 // }
-let Urls = ["https://www.nytimes.com/", "https://www.huffpost.com/", "https://www.huffpost.com/", "https://www.foxnews.com/", "https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
-
+// let Urls = ["https://www.nytimes.com/", "https://www.huffpost.com/", "https://www.huffpost.com/", "https://www.foxnews.com/", "https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
+let Urls = ["https://thetopdailynews.com/", "https://nypost.com/"]
 // let Urls = ["https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
 // list of events for converting to HAR
 const events = [];
