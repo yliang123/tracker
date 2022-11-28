@@ -18,8 +18,9 @@ const { harFromMessages } = require('chrome-har');
 //     .catch(err => console.log(err));
 //   await browser.close();
 // }
-// let Urls = ["http://mays.com","https://www.nytimes.com/","https://www.huffpost.com/", "https://www.huffpost.com/", "https://www.foxnews.com/","https://www.usatoday.com/","https://www.politico.com/","https://news.yahoo.com/", "https://www.npr.org/","https://www.latimes.com/california"];
-let Urls = ["https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
+let Urls = ["https://www.nytimes.com/", "https://www.huffpost.com/", "https://www.huffpost.com/", "https://www.foxnews.com/", "https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
+
+// let Urls = ["https://www.usatoday.com/", "https://www.politico.com/", "https://news.yahoo.com/", "https://www.npr.org/", "https://www.latimes.com/california"];
 // list of events for converting to HAR
 const events = [];
 
@@ -68,6 +69,8 @@ process.on('unhandledRejection', error => {
       console.log('PAGE LOG: ', ...args);
     });
     await page.goto(Urls[i]);
+    // set timeout to allow page to load
+    await page.setDefaultNavigationTimeout(3000)
     // get all links on the page
     // try {
     //   await har.stop();
@@ -97,17 +100,13 @@ process.on('unhandledRejection', error => {
     for (let j = 0; j < Math.min(5, filteredLinks.length); j++) {
       browserHistory.push(filteredLinks[j]);
       try {
-        await page.goto(filteredLinks[j], {
-          waitUntil: 'load',
-          // Remove the timeout
-          timeout: 1000
-        });
+        await page.goto(filteredLinks[j]);
       }
       catch (e) {
         console.log(e);
       }
       // wait for 1 to 3 seconds
-      // await page.waitFor(Math.floor(Math.random() * 3000) + 1000);
+
       const cookie = await page.cookies();
       cookies.push(cookie);
       //check session recording
