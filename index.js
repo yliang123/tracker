@@ -21,7 +21,9 @@ const { harFromMessages } = require('chrome-har');
 // let Urls = ["http://mays.com","https://www.nytimes.com/","https://www.huffpost.com/", "https://www.huffpost.com/", "https://www.foxnews.com/","https://www.usatoday.com/","https://www.politico.com/","https://news.yahoo.com/", "https://www.npr.org/","https://www.latimes.com/california"];
 // let Urls = ["https://www.usatoday.com/","https://www.politico.com/","https://news.yahoo.com/", "https://www.npr.org/","https://www.latimes.com/california"];
 
-let Urls = ["https://www.autoblog.com/", "https://jalopnik.com/", "http://www.speedhunters.com/", "https://www.motorauthority.com/", "https://paultan.org/", "https://www.greencarreports.com/", "https://www.carexpert.com.au/", "https://blog.consumerguide.com/","https://www.caranddriver.com/","https://www.carfax.com/"]
+// let Urls = ["https://www.autoblog.com/", "https://jalopnik.com/", "http://www.speedhunters.com/", "https://www.motorauthority.com/", "https://paultan.org/", "https://www.greencarreports.com/", "https://www.carexpert.com.au/", "https://blog.consumerguide.com/","https://www.caranddriver.com/","https://www.carfax.com/"]
+
+let Urls = ["https://www.carscoops.com"]
 // list of events for converting to HAR
 const events = [];
 
